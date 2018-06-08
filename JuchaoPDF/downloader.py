@@ -1,7 +1,4 @@
-#!/usr/bin/python
-# coding = utf-8
-# __author__='Lilly'
-# description:下载csv中列出的pdf年报
+# encoding: utf-8
 
 import csv
 import os
@@ -9,8 +6,8 @@ import time
 import requests
 
 MAX_COUNT = 5
-DST_DIR = 'D:/workspace/cninfo/report/agriculture/'
-LIST_FILE = 'D:/workspace/cninfo/report/agriculture/2018农业上市企业信息_20020206-20180417.csv'
+DST_DIR = '/home/captain/PycharmProjects/reportPDF/'
+LIST_FILE = '/home/captain/PycharmProjects/reportPDF/年度审计报告_20010920-20180608.csv'
 
 if __name__ == '__main__':
     assert (os.path.exists(DST_DIR)), 'No such destination directory \"' + DST_DIR + '\"!'
@@ -18,7 +15,7 @@ if __name__ == '__main__':
     if DST_DIR[len(DST_DIR) - 1] != '/':
         DST_DIR += '/'
     # 读取待下载文件列表
-    with open(LIST_FILE, 'r') as csv_in:
+    with open(LIST_FILE,'r',encoding="utf-8",errors="ignore") as csv_in:
         reader = csv.reader(csv_in)
         for each in enumerate(reader):
             download_count = 1
