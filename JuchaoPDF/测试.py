@@ -17,7 +17,7 @@ OUTPUT_FILENAME = '年度审计报告'
 PLATE = 'szzx;'
 
 
-MAX_PAGESIZE = 49
+MAX_PAGESIZE = 50
 MAX_RELOAD_TIMES = 5
 RESPONSE_TIMEOUT = 10
 
@@ -42,11 +42,11 @@ def get_response(page_num, return_total_count=False):
         'sortType':'',
         'limit':'',
         'showTitle':'',
-        'seDate': START_DATE + '~' + END_DATE,
+        'seDate': '请选择日期',
     }
 
     res = requests.post(URL, query, HEADER, timeout=RESPONSE_TIMEOUT)
     print(res.text)
+    print(type(res))
 
-
-get_response(1,True)
+get_response(120,True)

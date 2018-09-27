@@ -176,6 +176,7 @@ if __name__ == '__main__':
         writer = csv.writer(csv_out)
         for i in range(begin_pg, end_pg + 1):
             row = get_response(i)
+            print(row)
             if not row:
                 __log_error('Failed to fetch page #' + str(i) +
                             ': exceeding max reloading times (' + str(MAX_RELOAD_TIMES) + ').')
